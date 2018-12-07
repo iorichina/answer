@@ -9,3 +9,7 @@
 ```python  main.py```
 * 使用result中的内容生成html
 ```python  generate.py```
+
+# PS
+NONE IDE了啦
+@see https://linux.cn/article-10242-1.html
