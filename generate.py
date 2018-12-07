@@ -4,9 +4,9 @@ import re
 import jinja2
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
-import cv2
 
 def load():
+    # 装载result
     result = []
     with open("result", 'r', encoding='UTF-8') as f:
         content = f.read()
@@ -31,6 +31,7 @@ def load():
     return result
 
 def to_html(items):
+    # 使用html的模板将result转换为html
     loader = jinja2.FileSystemLoader(searchpath="./")
     env = jinja2.Environment(loader=loader)
     template = env.get_template("template.html")
@@ -40,17 +41,6 @@ def to_html(items):
     with open(filename, "w", encoding='UTF-8') as f:
         f.write(content)
 
-def crop_images():
-    img_files = os.listdir("./images")
-    for img_file in img_files:
-        out_name = "new_" + img_file
-        img_path = os.path.join("./images", img_file)
-        out_path = os.path.join("./images", out_name)
-        print(img_path, out_path)
-        img = cv2.imread(img_path)
-        crop_img = img[:2000, :550]
-        cv2.imwrite(out_path, crop_img)
-
 if __name__ == "__main__":
     all_items = load()
     to_html(all_items)
@@ -59,4 +49,3 @@ if __name__ == "__main__":
         end = min(i+8, len(all_items))
         items = all_items[start:end]
         to_html(items)
-    crop_images()
