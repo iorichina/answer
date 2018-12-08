@@ -7,7 +7,7 @@
 ```python show.py```
 * 爬取并将结果存储到MongoDB
 ```python  main.py --save```
-* 从MongoDB读取并筛选内容
+* 从MongoDB读取并筛选内容 输出到命令行
 ```python  main.py --query```
 * 使用result中的内容生成html
 ```python  generate.py```
