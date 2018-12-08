@@ -41,7 +41,11 @@ nosetests.xml
 # Editors
 *.swp
 .ropeproject
+.vscode
+.idea
+.vs
 
 dataviz/data/
 dlib/shape_predictor_68_face_landmarks.dat
 images/
+htmls/
