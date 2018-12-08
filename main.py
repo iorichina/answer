@@ -61,7 +61,7 @@ def query():
         question = item["target"]["question"]["title"]
         answer = item["target"]["content"]
         vote_num = item["target"]["voteup_count"]
-        if vote_num < 500:
+        if vote_num < 1000:
             continue
         answer_id = item["target"]["id"]
         if answer_id in answer_ids:
@@ -77,11 +77,11 @@ if __name__ == "__main__":
     parser.add_argument("--query", help="query data", action="store_true", dest="query")
     args = parser.parse_args()
 
-    # Fetching And save to Mongodb
+    # Fetching And save to MongoDB
     if args.save:
         #topic_ids = [19554298, 19552330, 19565652, 19580349, 19939299, 19555547, 19594551, 19552832, 19577377, 19552826, 19615452]
-        # 话题过多爬取时间有点长
-        topic_ids = [19554298, 19665034]
+        # 话题过多爬取时间有点长 19665034
+        topic_ids = [19554298]
         for topic_id in topic_ids:
             fetch_answers(topic_id)
     elif args.query:
